@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    registry: registry.makerforce.io
+    repo: registry.makerforce.io/pwd/latex
+    tags:
+    - latest
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password

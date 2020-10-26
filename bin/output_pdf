@@ -1,0 +1,14 @@
+#!/bin/sh
+
+TEMP=$(mktemp -d)
+
+cleanup() {
+	rm -rf "$TEMP"
+}
+
+pdflatex \
+	--output-directory "$TEMP" \
+	--output-format pdf \
+	"$@"
+
+mv "$TEMP"/*.pdf .
